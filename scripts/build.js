@@ -10,7 +10,7 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
 const main = async () => {
-	const { stdout, stderr } = await exec('ls', ['a', '-l']);
+	const { stdout, stderr } = await exec('cd assets && ls', ['a', '-l']);
 	if (stderr) {
 		console.log(stderr);
 	}
