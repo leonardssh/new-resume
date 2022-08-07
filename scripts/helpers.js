@@ -2,12 +2,16 @@ const fs = require('fs-extra');
 const Handlebars = require('handlebars');
 const path = require('path');
 
-const PARTIALS_DIR = 'src/partials';
-
 const render = (resume) => {
-	const template = fs.readFileSync('src/resume.hbs', 'utf-8');
-	const css = fs.readFileSync('assets/css/theme.css', 'utf-8');
-	const partials = fs.readdirSync(PARTIALS_DIR);
+	const [templatePath, partialsPath, cssPath] = [
+		path.join(process.cwd(), 'src', 'resume.hbs'),
+		path.join(process.cwd(), 'src', 'partials'),
+		path.join(process.cwd(), 'assets', 'css', 'theme.css')
+	];
+
+	const template = fs.readFileSync(templatePath, 'utf-8');
+	const css = fs.readFileSync(cssPath, 'utf-8');
+	const partials = fs.readdirSync(partialsPath);
 
 	partials.forEach((partial) => {
 		const matches = /^([^.]+).hbs$/.exec(partial);
@@ -17,7 +21,7 @@ const render = (resume) => {
 		}
 
 		const [, partialName] = matches;
-		const filePath = path.join(PARTIALS_DIR, partial);
+		const filePath = path.join(partialsPath, partial);
 		const partialTemplate = fs.readFileSync(filePath, 'utf8');
 
 		Handlebars.registerPartial(partialName, partialTemplate);
