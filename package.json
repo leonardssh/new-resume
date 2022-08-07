@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"license": "MIT",
 	"scripts": {
-		"build": "npm run build:css && npm run build:resume",
+		"build": "npm run build:css && npm run build:resume && cp _redirects dist/_redirects",
 		"build:resume": "node ./scripts/build.js",
 		"build:css": "tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --minify",
 		"dev:css": "tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --watch",
