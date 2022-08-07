@@ -5,8 +5,8 @@
 	"scripts": {
 		"build": "npm run build:css & npm run build:resume",
 		"build:resume": "node ./scripts/build.js",
-		"build:css": "npx tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --minify",
-		"dev:css": "npx tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --watch",
+		"build:css": "tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --minify",
+		"dev:css": "tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --watch",
 		"dev:resume": "node ./scripts/serve.js",
 		"dev": "concurrently \"npm run dev:css\" \"npm run dev:resume\""
 	},
