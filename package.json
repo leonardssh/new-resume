@@ -1,0 +1,42 @@
+{
+	"name": "@leonardssh/resume",
+	"version": "0.0.1",
+	"license": "MIT",
+	"scripts": {
+		"build": "npm run build:css & npm run build:resume",
+		"build:resume": "node ./scripts/build.js",
+		"build:css": "npx tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --minify",
+		"dev:css": "npx tailwindcss -i ./assets/tailwind/index.css -o ./assets/css/theme.css --watch",
+		"dev:resume": "node ./scripts/serve.js",
+		"dev": "concurrently \"npm run dev:css\" \"npm run dev:resume\""
+	},
+	"devDependencies": {
+		"axios": "^0.27.2",
+		"concurrently": "^7.3.0",
+		"fs-extra": "^10.1.0",
+		"handlebars": "^4.7.7",
+		"prettier": "^2.7.1",
+		"puppeteer": "^16.1.0",
+		"tailwindcss": "^3.1.8"
+	},
+	"prettier": {
+		"$schema": "http://json.schemastore.org/prettierrc",
+		"endOfLine": "lf",
+		"printWidth": 100,
+		"quoteProps": "as-needed",
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "none",
+		"useTabs": true,
+		"overrides": [
+			{
+				"files": "*.yml",
+				"options": {
+					"tabWidth": 2,
+					"useTabs": false
+				}
+			}
+		]
+	}
+}
