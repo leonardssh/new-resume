@@ -5,6 +5,24 @@ const { getResume } = require('./get-resume');
 
 const OUTPUT_DIR = 'dist';
 
+// DEBUG
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
+const main = async () => {
+	const { stdout, stderr } = await exec('ls', ['a', '-l']);
+	if (stderr) {
+		console.log(stderr);
+	}
+
+	console.log('\n---\n');
+	console.log(stdout);
+	console.log('---\n');
+};
+
+main();
+// DEBUG
+
 const buildHTML = async () => {
 	await fs.remove(OUTPUT_DIR);
 	await fs.ensureDir(OUTPUT_DIR);
