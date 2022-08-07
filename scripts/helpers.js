@@ -2,11 +2,11 @@ const fs = require('fs-extra');
 const Handlebars = require('handlebars');
 const path = require('path');
 
-const PARTIALS_DIR = './src/partials';
+const PARTIALS_DIR = 'src/partials';
 
 const render = (resume) => {
 	const template = fs.readFileSync('src/resume.hbs', 'utf-8');
-	const css = fs.readFileSync('./assets/css/theme.css', 'utf-8');
+	const css = fs.readFileSync('assets/css/theme.css', 'utf-8');
 	const partials = fs.readdirSync(PARTIALS_DIR);
 
 	partials.forEach((partial) => {

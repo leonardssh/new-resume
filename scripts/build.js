@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const { render } = require('./helpers');
 const { getResume } = require('./get-resume');
 
-const OUTPUT_DIR = './dist';
+const OUTPUT_DIR = 'dist';
 
 const buildHTML = async () => {
 	await fs.remove(OUTPUT_DIR);
@@ -48,7 +48,7 @@ const buildPDF = async (html) => {
 	await browser.close();
 
 	console.log('Saving file...');
-	fs.writeFileSync('./dist/resume.pdf', pdf);
+	fs.writeFileSync('dist/resume.pdf', pdf);
 
 	console.log('Done');
 	return pdf;
