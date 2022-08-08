@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const puppeteer = require('puppeteer');
-const { render } = require('./helpers');
+const { render } = require('./render');
 const { getResume } = require('./get-resume');
 
 const OUTPUT_DIR = 'dist';

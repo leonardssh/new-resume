@@ -1,5 +1,5 @@
 const http = require('http');
-const { render } = require('./helpers');
+const { render } = require('./render');
 const { getResume } = require('./get-resume');
 
 const PORT = 8888;
